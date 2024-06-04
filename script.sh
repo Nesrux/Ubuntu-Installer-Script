@@ -90,38 +90,6 @@ fi
 
 
 
-# Instalação do Slack
-if snap list | grep -q "slack"; then
-    echo "SLACK já está instalado."
-else
-    echo "Instalando o Slack..."
-    sudo snap install slack
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "SLACK instalado com sucesso"
-
-fi
-
-
-
-
-#verifica se o Spotify esta instalado
-if ! [ -x "$(command -v spotify)" ]; then
-  echo "Instalando Spotify..."
-  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-  sudo apt-get update && sudo apt-get install spotify-client -y
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "Spotify instalado com sucesso"
-
-else
-    echo "SPOTIFY ja instalado"
-fi
-
-
-
-
 # Verifica se o Visual Studio Code está instalado
 if ! command -v code &> /dev/null; then
   echo "Instalando Visual Studio Code..."
@@ -155,46 +123,6 @@ if ! command -v google-chrome &> /dev/null; then
 else
   echo "CHROME já está instalado"
 fi
-
-
-
-
-# Verifica se o Discord está instalado
-if ! command -v discord &> /dev/null; then
-  echo "Instalando Discord..."
-  wget -O discord.deb "https://discord.com/api/download?platform=linux&format=deb"
-  sudo dpkg -i discord.deb
-  sudo apt --fix-broken install -y
-  rm discord.deb
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "DISCORD instalado com sucesso"
-
-else
-  echo "DISCORD já está instalado"
-fi
-
-
-
-
-# Verifica se o Node.js já está instalado
-if ! command -v node &> /dev/null
-then
-  echo "Node.js não encontrado, iniciando instalação..."
-  sudo apt-get remove libnode72:amd64
-  curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs
-
-    # Verifica a versão instalada
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "NODE instalado com sucesso"
-
-else
-    echo "NODE já está instalado"
-fi
-
-
 
 
 # Verifica se o Docker já está instalado
@@ -258,19 +186,6 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 else
     echo "DOCKER-COMPOSE já está instalado!"
 fi
-
-# Verificar se o Yarn já está instalado
-if [ -x "$(command -v yarn)" ]; then
-  echo "Yarn já está instalado"
-else
-  # Adicionar o repositório Yarn
-  npm install --global yarn
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "YARN instalado com sucesso"
-
-fi
-
 
 echo "Todos os softwares foram instalados com sucesso!"
 
