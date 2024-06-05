@@ -7,9 +7,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 
-
-
-
 echo "Atualizando repositório e fazendo atualização do sistema"
 apt_update(){
   sudo apt update && sudo apt dist-upgrade -y
@@ -31,11 +28,6 @@ else
     echo "|------------------------------------------------------------|"
     echo "GDEBI instalado"
 fi
-
-
-
-
-
 
 
 
@@ -73,6 +65,8 @@ fi
 
 
 
+
+
 # Instalação do Python
 if ! [ -x "$(command -v python3)" ]; then
   echo "Instalando o python..."
@@ -87,6 +81,23 @@ else
     echo "PYTHON ja instalado"
 fi
 
+# Instalação do Golang
+if ! [ -x "$(command -v go)" ]; then
+  echo "Instalando o GoLang..."
+  sudo apt install golang-1.20-go -y
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "Golang instalado com sucesso"
+
+
+else
+    echo "Golang ja instalado"
+fi
+
+
+
+# Instakação SKDMAAN
+if ! command version sdk
 
 
 
@@ -168,7 +179,6 @@ if ! [ -x "$(command -v docker)" ]; then
 else
     echo "DOCKER já está instalado!"
 fi
-
 
 
 
