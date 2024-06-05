@@ -47,9 +47,6 @@ else
     echo "CURL já está instalado"
 fi
 
-
-
-
 # Verificar se o git já está instalado
 if [ -x "$(command -v git)" ]; then
   echo "GIT já está instalado"
@@ -61,11 +58,6 @@ else
   echo "|------------------------------------------------------------|"
   echo "git instalado com sucesso"
 fi
-
-
-
-
-
 
 # Instalação do Python
 if ! [ -x "$(command -v python3)" ]; then
@@ -97,9 +89,12 @@ fi
 
 
 # Instakação SKDMAAN
-if ! command version sdk
-
-
+if ! command -v sdk &> /dev/null; then
+  echo "Instalando SDKMAN..."
+  curl -s "https://get.sdkman.io" | bash
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+  wait
+  echo "SDK MAN instalado com sucesso!"
 
 # Verifica se o Visual Studio Code está instalado
 if ! command -v code &> /dev/null; then
