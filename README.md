@@ -21,19 +21,14 @@ ou
 ### Lista de Softwares e pacotes
 
 - GDEBI-CORE
-- ZOOM
 - SNAP
-- SLACK
 - VSCODE
 - GOOGLE CHROME
-- DISCORD
-- NODE.JS
 - DOCKER
 - DOCKER COMPOSE
-- PYTHON
-- SPOTIFY
 - CURL
 - GIT
-- YARN
+- Golang
+- Sdkman
 
 ### Fique a vontade para criar uma branch e contribuir com o repositório
